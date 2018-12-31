@@ -1,0 +1,11 @@
+Package: nuevalhelperfuns
+Title: Helper functions for NU Med student evaluation project
+Version: 0.0.0.9000
+Authors@R: person("Amy", "Yang", email = "yangy.ustc@gmail.com", role = c("aut", "cre"))
+Description: Functions including scoring, cleaning to generate reports.
+Depends: R (>= 3.5.1)
+License: 
+Encoding: UTF-8
+LazyData: true
+Imports: tidyverse
+RoxygenNote: 6.1.1
