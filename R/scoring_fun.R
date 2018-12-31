@@ -1,4 +1,10 @@
 
+#' Pick Vars Function
+#'
+#' This function allows you to calculated z-scores and 5 level gated scores
+#' @param df a dataframe for scoring
+#' @param var_names a vector of variables used for each domain
+#' @return a dataframe with total score for the domain, zscores and gated scores from the total score
 .pick_vars <- function(df,var_names){
   select(df,!!! var_names)
 }
