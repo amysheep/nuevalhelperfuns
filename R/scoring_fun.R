@@ -1,15 +1,25 @@
-#' Scoring Function 
+
+#' Pick Var Function
 #'
-#' This function allows you to calculated z-scores and 5 level gated scores
+#' This function allows you to select the listed columns from a DF
 #' @param df a dataframe for scoring
-#' @param var_names a vector of variables used for each domain 
-#' @keywords z-scores , gated scores
-#' @return a dataframe with total score for the domain, zscores and gated scores from the total score 
-#' @examples
-#' @export
+#' @param var_names a vector of variables used for each domain
+#' @return a dataframe with selected columns
 pick_vars <- function(df,var_names){
   select(df,!!! var_names)
 }
+
+#' @name scores
+#' Scoring Function
+#'
+#' This function allows you to calculated z-scores and 5 level gated scores
+#' @param df a dataframe for scoring
+#' @param var_names a vector of variables used for each domain
+#' @keywords z-scores , gated scores
+#' @return a dataframe with total score for the domain, zscores and gated scores from the total score
+#' @examples
+#' @export
+
 
 # sum of vars,z-score, gate score
 scores <- function(df,var_names) {
@@ -29,3 +39,5 @@ scores <- function(df,var_names) {
         ))))
   return(data.frame(tot,zscore,gated))
 }
+
+

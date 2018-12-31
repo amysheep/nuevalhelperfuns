@@ -2,7 +2,7 @@
 % Please edit documentation in R/scoring_fun.R
 \name{pick_vars}
 \alias{pick_vars}
-\title{Scoring Function}
+\title{Pick Var Function}
 \usage{
 pick_vars(df, var_names)
 }
@@ -12,12 +12,8 @@ pick_vars(df, var_names)
 \item{var_names}{a vector of variables used for each domain}
 }
 \value{
-a dataframe with total score for the domain, zscores and gated scores from the total score
+a dataframe with selected columns
 }
 \description{
-This function allows you to calculated z-scores and 5 level gated scores
+This function allows you to select the listed columns from a DF
 }
-\keyword{,}
-\keyword{gated}
-\keyword{scores}
-\keyword{z-scores}
