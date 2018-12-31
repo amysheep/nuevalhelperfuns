@@ -1,11 +1,5 @@
 
-#' Pick Var Function
-#'
-#' This function allows you to select the listed columns from a DF
-#' @param df a dataframe for scoring
-#' @param var_names a vector of variables used for each domain
-#' @return a dataframe with selected columns
-pick_vars <- function(df,var_names){
+.pick_vars <- function(df,var_names){
   select(df,!!! var_names)
 }
 
