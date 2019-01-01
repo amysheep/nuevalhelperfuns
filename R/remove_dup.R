@@ -4,9 +4,9 @@
 #' @name rmdup
 #' @param data a dataframe for scoring
 #' @param examName Exam name i.e. InternalMed, PCC, Peds...
-#' @keywords
+
 #' @return a dataframe with exam name attached to it
-#' @examples
+
 #' @export
 rmdup <- function(data, examName){
   out <- data%>%

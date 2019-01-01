@@ -1,21 +1,12 @@
 
-# Title pick var helper fun
-.pick_vars <- function(df,var_names){
-  select(df,!!! var_names)
-}
-
-
 #' @title Scoring Function
 #' @name scores
-#' This function allows you to calculated z-scores and 5 level gated scores
+#' @description  This function allows you to calculated z-scores and 5 level gated scores
 #' @param df a dataframe for scoring
 #' @param var_names a vector of variables used for each domain
-#' @keywords z-scores , gated scores
 #' @return a dataframe with total score for the domain, zscores and gated scores from the total score
-#' @examples
-
 #' @export
-# sum of vars,z-score, gate score
+
 scores <- function(df,var_names) {
 
   .pick_vars(df,var_names)%>%rowSums()->tot
@@ -35,4 +26,29 @@ scores <- function(df,var_names) {
   return(data.frame(tot,zscore,gated))
 }
 
+#' @title All Scoring Function
+#' @name AllGatedScores
+#' @description  This function allows you to calculated the 5 level gated scores for all reports
+#' @param df a dataframe for scoring
+#' @param colname column name for gated score
+#' @return a dataframe with gated scores from z scores
+#' @export
+
+AllGatedScores <- function(df,colname) {
+
+  zscore <- round(( df[[colname]]-mean(df[[colname]],na.rm=T))/sd(df[[colname]],na.rm=T),2)
+  gated <- ifelse(
+    zscore <= -2,1,
+    ifelse(
+      zscore > -2 &
+        zscore <= -1.5,2,
+      ifelse(
+        zscore > -1.5 &
+          zscore <= 1 , 3,
+        ifelse(
+          zscore > 1 &
+            zscore <= 2 , 4, 5
+        ))))
+  return(data.frame(df,gated))
+}
 
