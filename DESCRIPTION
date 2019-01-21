@@ -7,7 +7,8 @@ Depends: R (>= 3.5.1)
 License: 
 Encoding: UTF-8
 LazyData: true
-Imports: tidyverse
+Imports: magrittr,
+        dplyr
 RoxygenNote: 6.1.1
 Suggests: knitr,
     rmarkdown
